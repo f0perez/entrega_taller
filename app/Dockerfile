@@ -8,6 +8,7 @@ WORKDIR /app
 # Copiar pyproject.toml y poetry.lock primero para aprovechar el cache de Docker
 COPY pyproject.toml poetry.lock ./
 COPY model.keras ./
+COPY preprocessor.joblib ./ # ¡Asegúrate de copiar también el preprocesador!
 COPY app.py ./
 COPY README.md ./
 
@@ -16,6 +17,7 @@ RUN pip install poetry
 
 # Instalar las dependencias del proyecto usando Poetry
 # `--no-root` para no instalar el propio paquete del proyecto (ya que no es una librería)
+# `--no-dev` para no instalar dependencias de desarrollo
 RUN poetry install --no-root --no-dev
 
 # Exponer el puerto por defecto de Streamlit
