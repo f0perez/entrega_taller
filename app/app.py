@@ -1,29 +1,31 @@
 import streamlit as st
 import tensorflow as tf
 import pandas as pd
-import joblib # Importamos joblib para cargar el preprocesador
+import joblib
 
 # --- Funciones de Carga Cacheada ---
-
 @st.cache_resource
 def load_keras_model():
-    """Carga el modelo de Keras desde 'model.keras'."""
     try:
         model = tf.keras.models.load_model('model.keras')
         return model
     except Exception as e:
-        st.error(f"Error al cargar el modelo: {e}")
+        import traceback
+        st.error("Error al cargar el modelo:")
+        st.text(traceback.format_exc())
         return None
 
 @st.cache_resource
 def load_preprocessor():
-    """Carga el preprocesador (ColumnTransformer) desde 'preprocessor.joblib'."""
     try:
         preprocessor = joblib.load('preprocessor.joblib')
         return preprocessor
     except Exception as e:
-        st.error(f"Error al cargar el preprocesador: {e}")
+        import traceback
+        st.error("Error al cargar el preprocesador:")
+        st.text(traceback.format_exc())
         return None
+
 
 # Cargar el modelo y el preprocesador
 model = load_keras_model()

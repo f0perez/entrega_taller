@@ -6,10 +6,10 @@ authors = [
     { name = "f0.perezcanales", email = "f0.perezcanales@gmail.com" }
 ]
 readme = "README.md"
-requires-python = ">=3.11" # Esto especifica la versión mínima de Python para el proyecto
+requires-python = ">=3.11"
 
 [tool.poetry.dependencies]
-python = ">=3.11,<3.13" # Aquí se define la versión de Python para las dependencias
+python = ">=3.11,<3.13"
 joblib = ">=1.5.1,<2.0.0"
 pandas = ">=2.3.0,<3.0.0"
 scikit-learn = ">=1.7.0,<2.0.0"

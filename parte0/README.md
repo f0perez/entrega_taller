@@ -9,6 +9,15 @@ Este directorio contiene el código para entrenar y serializar el modelo de Kera
 ### 2. Instala las dependencias usando Poetry:
    `poetry install`
 
+### 2.1 Activar el ambiente poetry local para volver a entrenar el modelo (sólo si se requiere)
+   > https://python-poetry.org/docs/managing-environments/#bash-csh-zsh
+   # bash-csh-zsh
+   `eval $(poetry env activate)`
+   # PowerShell
+   `Invoke-Expression (poetry env activate)`
+   # Entrenamiento (como recordatorio)
+   `python train_model.py`
+
 ### 3. Instala manualmente TensorFlow 2.15.0 dentro del entorno Poetry (para evitar problemas con dependencias de wheels):
    `poetry run pip install tensorflow==2.15.0`
 

@@ -20,8 +20,6 @@ Este directorio contiene la aplicación Streamlit y los archivos para su dockeri
 3. Ejecuta el contenedor Docker, mapeando el puerto 8501:
    `docker run -p 8501:8501 -d titanic-streamlit-app`
 
+4. Abre tu navegador en:
+   `http://localhost:8501`
 
-### Nota
-
-**Configurar Poetry para crear entornos virtuales dentro de la carpeta del proyecto:** 
-`poetry config virtualenvs.in-project true`

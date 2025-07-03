@@ -1,5 +1,5 @@
 # Usar una imagen base de Python
-FROM python:3.9-slim-buster
+FROM python:3.11-slim-buster
 
 # Establecer el directorio de trabajo en el contenedor
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 # Copiar pyproject.toml y poetry.lock primero para aprovechar el cache de Docker
 COPY pyproject.toml poetry.lock ./
 COPY model.keras ./
-COPY preprocessor.joblib ./ # ¡Asegúrate de copiar también el preprocesador!
+COPY preprocessor.joblib ./
 COPY app.py ./
 COPY README.md ./
 
@@ -18,7 +18,7 @@ RUN pip install poetry
 # Instalar las dependencias del proyecto usando Poetry
 # `--no-root` para no instalar el propio paquete del proyecto (ya que no es una librería)
 # `--no-dev` para no instalar dependencias de desarrollo
-RUN poetry install --no-root --no-dev
+RUN poetry install
 
 # Exponer el puerto por defecto de Streamlit
 EXPOSE 8501

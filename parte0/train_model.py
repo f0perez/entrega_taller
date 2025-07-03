@@ -77,9 +77,11 @@ output_dir = os.path.join(os.path.dirname(os.getcwd()), 'app')
 os.makedirs(output_dir, exist_ok=True)
 
 model_save_path = os.path.join(output_dir, 'model.keras')
-model.save(model_save_path)
+model.save(model_save_path, save_format="keras")  # 👈 fuerza formato moderno
+
 print(f"✅ Modelo guardado en: {model_save_path}")
 
+# Guardar preprocesador
 preprocessor_save_path = os.path.join(output_dir, 'preprocessor.joblib')
 joblib.dump(preprocessor, preprocessor_save_path)
 print(f"✅ Preprocesador guardado en: {preprocessor_save_path}")
