@@ -6,19 +6,16 @@ authors = [
     { name = "f0.perezcanales", email = "f0.perezcanales@gmail.com" }
 ]
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.11" # Esto especifica la versión mínima de Python para el proyecto
 
-dependencies = [
-    "joblib>=1.5.1,<2.0.0",
-    "pandas>=2.3.0,<3.0.0",
-    "scikit-learn>=1.7.0,<2.0.0",
-    "seaborn>=0.13.2,<0.14.0",
-    "tensorflow==2.15.0"
-]
-
-[tool.poetry.extras]
-# Evita que tensorflow-io-gcs-filesystem sea incluido si no se necesita explícitamente
-tensorflow-io-gcs-filesystem = { version = "*", python = "<3.12" }
+[tool.poetry.dependencies]
+python = ">=3.11,<3.13" # Aquí se define la versión de Python para las dependencias
+joblib = ">=1.5.1,<2.0.0"
+pandas = ">=2.3.0,<3.0.0"
+scikit-learn = ">=1.7.0,<2.0.0"
+seaborn = ">=0.13.2,<0.14.0"
+tensorflow = "2.15.0"
+tensorflow-io-gcs-filesystem = { version = "*", python = "<3.12" } # Manteniendo tu configuración
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
